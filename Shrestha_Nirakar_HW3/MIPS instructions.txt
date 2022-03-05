@@ -1,0 +1,212 @@
+1)
+if ( i == j)
+	k = k + i;
+else 
+	k = k + j;
+
+Let i,j and k be represented in $s1, $s2 and $s3 respectively.
+
+		beq $s1, $s2, isTrue
+		add $s3, $s3, $s2
+		j Exit
+isTrue: 
+		add $s3, $s3, $s1
+Exit:
+
+
+
+2)
+if (i == j)
+	k = k + i;
+else 
+	k = k + j;
+	
+Let value of i, j and k be stored in $s4, $s5, and $s6 respectively.
+
+		bne $s4, $s5, Else
+		add $s6, $6, $s4
+		j Exit
+Else:
+		add $s6, $s6, $s5
+Exit:
+
+
+
+3)
+if ( i < j)
+	goto less;
+else	
+	i = i + j;
+
+Let i be in $s1 and j be in $s2.
+
+		slt $t0, $s1, $s2
+		bne $t0, $zero, Less
+		add $s3, $s3, $s4
+Less:
+
+
+4)
+if ( i > j)
+	goto more;
+else	
+	i = i + j;
+
+Let i be in $s3 and j be in $s4.
+
+		slt $t0, $s4, $s3
+		bne $t0, $zero, More
+		add $s3, $s3, $s4
+More:
+
+
+
+5)
+if ( i <= j)
+	k = k + i;
+else 
+	k = k - i;
+	
+Let value of i, j and k be stored in $s3, $s4, and $s5 respectively.
+		
+		slt $t0, $s4, $s3
+		beq	$t0, $zero, Out
+		sub $s5, $s5, $s3
+		j Exit
+Out:
+		add $5, $s5, $s3 
+Exit:
+
+
+
+6)
+if ( i >= j)
+	k = k + j;
+else 
+	k = k - j;
+	
+Let value of i, j and k be stored in $s3, $s4, and $s5 respectively.
+
+		slt $t0, $s3, $s4
+		beq	$t0, $zero, Out
+		sub $s5, $s5, $s4
+		j Exit
+Out:
+		add $s5, $s5, $s4
+Exit:
+
+		
+
+7)
+while ( i == j )
+	{
+		i = i + k;
+	}
+j = j + k;
+
+Let i, j, and k be represented in $s1, $s2, and $s3 respectively.
+
+Loop:
+		bne $s1, $s2, Exit
+		add $s1, $s1, $s3
+		j Loop:
+Exit:
+		add $s2, $s2, $s3
+
+		
+
+8)
+while ( i != j )
+{
+	i = i + k;
+}
+j = j + k;
+
+Let i, j, and k be represented in $s1, $s2, and $s3 respectively.
+
+Loop:
+		beq $s1, $s2, Exit
+		add $s1, $s1, $s3
+		j Loop:
+Exit:
+		add $s2, $s2, $s3
+
+
+
+9)
+while ( i < j )
+{
+	i = i - k;
+}
+k = k + j;
+
+Let i, j, and k be represented in $s7, $s8, and $s9 respectively.
+
+Loop:
+		slt $t0, $s7, $s8
+		beq $t0, $zero, False
+		sub $s7, $s7, $s9    
+		j Loop               
+False:                       
+		add $s9, $s9, $s8    
+                             
+		                     
+                             
+10)                          
+while ( i > j )              
+{                            
+	i = i - k;               
+}                            
+k = k + j;                                          
+	                         
+Let i, j, and k be represented in $s7, $s8, and $s9 respectively.
+                             
+Loop:                        
+		slt $t0, $s8, $s7    
+		beq $t0, $zero, False
+		sub $s7, $s7, $s9    
+		j Loop               
+False:                       
+		add $s9, $s9, $s8    
+                             
+                             
+                             
+11)                          
+while ( i <= j )             
+{                            
+	i = i - k;               
+}                            
+k = k + j;  
+
+Let i, j, and k be represented in $s7, $s8, and $s9 respectively.
+                             
+Loop:                        
+		slt $t0, $s8, $s7    
+		bne $t0, $zero, False
+		sub $s7, $s7, $s9    
+		j Loop               
+False:                       
+		add $s9, $s9, $s8  
+
+
+
+12)
+while ( i >= j )
+{
+	i = i - k;
+}
+k = k + j;
+
+Let i, j, and k be represented in $s7, $s8, and $s9 respectively.
+
+Loop:
+		slt $t0, $s7, $s8
+		bne $t0, $zero, False
+		sub $s7, $s7, $s9    
+		j Loop               
+False:                       
+		add $s9, $s9, $s8 
+		
+                                   
+	                         
+	                         
